@@ -11,7 +11,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Edgware.SR3"
     }
 }
 
@@ -20,8 +26,15 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-webflux")
-    compile("org.projectreactor:reactor-spring:1.0.1.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+    // netflix hystrix
+    compile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+
+    // hystrix-dashboard
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix-dashboard")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 
     testCompile("junit:junit")
 }

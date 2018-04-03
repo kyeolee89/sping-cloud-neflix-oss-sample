@@ -1,2 +1,22 @@
 server:
   port: 3333
+
+# hystrix configuration (https://github.com/Netflix/Hystrix/wiki/Configuration)
+hystrix:
+  command:
+    # Global
+    default:
+      metrics.rollingStats.timeInMilliseconds: 2000   # 오류 감시 시간 (default : 10000ms)
+      circuitBreaker:
+        requestVolumeThreshold: 4     # 감시 시간 중 요청 수 (default : 20)
+        errorThresholdPercentage: 50  # 오류율 (default : 50)
+
+    # 특정 commandKey 에 대해 예외 처리
+    sample:
+      metrics.rollingStats.timeInMilliseconds: 5000
+      circuitBreaker.requestVolumeThreshold: 10
+      circuitBreaker.errorThresholdPercentage: 50
+
+  threadpool:
+    default:
+      coreSize: 30    # default 가 10개로 되어 있어 반드시 고려해서 조절 필요
