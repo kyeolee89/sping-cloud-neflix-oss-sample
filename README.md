@@ -14,4 +14,4 @@
 
 ## Hystrix Test
 
-- 
+- https://github.com/kyeolee89/sping-cloud-neflix-oss-sample/tree/master/client
