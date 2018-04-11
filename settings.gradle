@@ -2,4 +2,5 @@ rootProject.name = 'sping-cloud-neflix-oss-sample'
 include 'server-1115'
 include 'server-1116'
 include 'client'
+include 'eureka-server'
 
