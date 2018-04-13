@@ -1,0 +1,13 @@
+server:
+  port: 1117
+zuul:
+  routes:
+    server-1115:
+      path: 1115/**
+      url: http://localhost:1115
+    server-1116:
+      path: 1116/**
+      url: http://localhost:1116
+    default:
+      path: /**
+      url: http://localhost:1117
